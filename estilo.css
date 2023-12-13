@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(183, 249, 208);
+    padding: 0;
+    margin: 0;
+}
+
+.cuerpo{
+    display: flex;
+}
+
+.tamagochi{
+    background-color: #F7C1BB;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control{
+    background-color: #885A5A;
+    width: 50%;
+    height: 100vh;
+
+}
+
+.imagen{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+textarea{
+    width: 99%;
+    height: 450px;
+    background-color: #000000;
+    resize: none;
+    color: rgb(0, 139, 33);
+}
+
+.boton{
+    margin-top: 8px;
+    display: block;
+    width: 20vw;
+    background-color: #353A47;
+    padding: 5px;
+    border-radius: 5px;
+    color: aliceblue;
+    text-align: center;
+    transition: all .2s ease-in-out;
+}
+
+.boton:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
