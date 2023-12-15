@@ -9,16 +9,18 @@
 </head>
 <body>
     <div class="cuerpo">
-        <div class="tamagochi">
-            <img class="imagen" src="./img/caquita normal.png" alt="" id="imagen">
-            <div id="barras">
-                
+        <div class="tamagochi" id="fondo">
+            <div class="filtro">
+                <img class="imagen" src="./img/estados/caquita_normal.png" alt="" id="imagen">
             </div>
-            
         </div>
         <div class="control">
-            <textarea name="" id="consola" cols="30" rows="10">-Hola soy</textarea> <br>
-            <div id="acciones">
+            <textarea spellcheck="false" id="consola" cols="30" rows="10" readonly="true">-Hola soy</textarea> <br>
+
+            <div class="acciones">
+                <div id="botones_estatus" style="background-color: rgb(197, 243, 255);" class="accionesSecciones"></div>
+                <div id="botones_escenas" style="background-color: rgb(255, 197, 197);" class="accionesSecciones"></div>
+                <div id="barras"></div>
             </div>
         </div>
     </div>

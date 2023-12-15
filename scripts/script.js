@@ -1,5 +1,6 @@
-import { EstatusHandler, estados } from './estados.js';
-import { barrasEstatus, acciones_botones } from './donElement.js';
+import { EstatusHandler, estados } from './estados.js'
+import { EscenasHandler, ESCENAS_COLLECTION } from './escenas.js'
+import { barrasEstatus, acciones_botones, acciones_escenas } from './donElement.js'
 
 //definimos el nombre de la mascota
 localStorage.setItem('nombre_tamagochi', prompt("Cual es mi nombre?"))
@@ -7,7 +8,8 @@ localStorage.setItem('nombre_tamagochi', prompt("Cual es mi nombre?"))
 class InitProgram 
 {
     //Propiedades
-    estatus = new EstatusHandler();
+    estatus = new EstatusHandler()
+    escenas = new EscenasHandler()
 
     constructor() 
     {
@@ -15,21 +17,31 @@ class InitProgram
         setTimeout(this.estatus.defineIncremento, 500);
         // INCREMENTO ESTATUS
         setInterval(this.estatus.estatusIncremento, 7000);
-        this.iniciar();
+        this.pintarInterfaz();
     }
 
-    iniciar = () => 
+    pintarInterfaz = () => 
     {
         estados.forEach(element => 
             {
-                acciones_botones.innerHTML += `<div class="boton" onclick="initProgram.aliviarEstado('${element.nombre}')">${element.nombre}</div>`;
+                acciones_botones.innerHTML += `<a href="#" class="boton"  onclick="initProgram.aliviarEstado('${element.nombre}')">${element.nombre_boton}</a>`;   
                 barrasEstatus.innerHTML += `<canvas id="barrasEstatus${element.nombre}" width="200" height="30"></canvas>`
-            });
+            })
+        ESCENAS_COLLECTION.forEach(element =>
+            {
+                acciones_escenas.innerHTML += `<a href="#" class="boton" onclick="initProgram.cambiarEscena('${element.imagen_path}')">${element.nombre_boton}</a>`;
+            })
+            
     }
 
     aliviarEstado = (nombre) => 
     {
-        this.estatus.aliviarEstado(nombre);
+        this.estatus.aliviarEstado(nombre)
+    }
+    
+    cambiarEscena = ( imagen_path ) =>
+    {
+        this.escenas.cambiarEscena( imagen_path )
     }
 }
 // Crear una instancia de InitProgram en el ámbito global

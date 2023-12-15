@@ -1,4 +1,6 @@
 export const consola           = document.getElementById("consola")
 export const imagen            = document.getElementById("imagen")
-export const acciones_botones  = document.getElementById("acciones")
 export const barrasEstatus     = document.getElementById("barras")
+export const acciones_botones  = document.getElementById("botones_estatus")
+export const acciones_escenas  = document.getElementById("botones_escenas")
+export const escena            = document.getElementById("fondo")
