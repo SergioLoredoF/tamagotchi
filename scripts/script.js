@@ -1,9 +1,10 @@
 import { EstatusHandler, estados } from './estados.js'
 import { EscenasHandler, ESCENAS_COLLECTION } from './escenas.js'
-import { barrasEstatus, acciones_botones, acciones_escenas } from './donElement.js'
+import { barrasEstatus, acciones_botones, cambio_escenas } from './donElement.js'
 
 //definimos el nombre de la mascota
 localStorage.setItem('nombre_tamagochi', prompt("Cual es mi nombre?"))
+localStorage.setItem('escena_actual', 'hogar')
 
 class InitProgram 
 {
@@ -29,7 +30,7 @@ class InitProgram
             })
         ESCENAS_COLLECTION.forEach(element =>
             {
-                acciones_escenas.innerHTML += `<a href="#" class="boton" onclick="initProgram.cambiarEscena('${element.imagen_path}')">${element.nombre_boton}</a>`;
+                cambio_escenas.innerHTML += `<a href="#" class="boton" onclick="initProgram.cambiarEscena('${element.imagen_path}')">${element.nombre_boton}</a>`;
             })
             
     }
@@ -42,6 +43,17 @@ class InitProgram
     cambiarEscena = ( imagen_path ) =>
     {
         this.escenas.cambiarEscena( imagen_path )
+    }
+
+    escenaAccion = ( nombre, indice ) =>
+    {
+        for ( let i = 0; i < ESCENAS_COLLECTION.length; i++ )
+        {
+            if ( nombre === ESCENAS_COLLECTION[i].nombre )
+            {
+                ESCENAS_COLLECTION[i].acciones[indice].fn()
+            }
+        }
     }
 }
 // Crear una instancia de InitProgram en el ámbito global

@@ -8,7 +8,7 @@ export const estados =
         imagen_path: '../img/estados/hambre.png',
         imagen_path_alivia: '../img/estados/comiendo.png',
         rango_max: 10,
-        causa_muerte: 'this.murio de inanicion',
+        causa_muerte: 'murio de inanicion',
         peticion: 'dame de comer',
         nombre_boton: 'Comer',
     },
@@ -19,7 +19,7 @@ export const estados =
         imagen_path: '../img/estados/sucio.png',
         imagen_path_alivia: '../img/estados/bano.png',
         rango_max: 5,
-        causa_muerte: 'this.murio de puerco',
+        causa_muerte: 'murio de puerco',
         peticion: 'ando muy sucio pa!',
         nombre_boton: 'Bañar',
     },
@@ -175,8 +175,9 @@ export class EstatusHandler {
 
     escribeConsola = () =>
     {
-        consola.innerHTML = this.textoConsola
+        consola.innerHTML += this.textoConsola
         consola.scrollTop = consola.scrollHeight;
+        this.textoConsola = ''
     }
 }
 
