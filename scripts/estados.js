@@ -1,4 +1,5 @@
 import { consola, imagen } from './donElement.js'
+
 export const estados = 
 [
     {

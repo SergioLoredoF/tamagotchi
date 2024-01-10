@@ -48,8 +48,8 @@ export class EscenasHandler
 
         ESCENAS_COLLECTION.forEach( (element, index) =>
             {
-                //Tenemos que ver que el indice sea mayor a 0 para pintar botones pues es el indice el hogar
-                //Tambien vemos que la escena cambiada sea la que tiene el elemento del forEach
+                //Tenemos que ver que el indice sea mayor a 0 para pintar botones pues 0 es el indice del hogar
+                //Tambien vemos que la escena cambiada sea la que tiene el elemento del forEach (el imagen_path)
                 if ( index > 0 && element.imagen_path === imagen_path ) 
                 {
                     //Limpiamos los botones, pintamos un boton por aca elemento del arrelo de acciones que tiene la escena
@@ -58,7 +58,8 @@ export class EscenasHandler
                     {
                         acciones_escenas.innerHTML += `<a href="#" class="boton" onclick="initProgram.escenaAccion('${element.nombre}',${i})">${element.acciones[i].nombre_boton}</a>`
                     }
-                }else if ( imagen_path ===  '../img/escenas/escena_casa.png') 
+                }
+                else if ( imagen_path ===  '../img/escenas/escena_casa.png') 
                 {
                     acciones_escenas.innerHTML = ''
                 }
